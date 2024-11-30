@@ -1,3 +1,22 @@
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+const closeIcon = document.querySelector('.close-icon');
+
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
+
+closeIcon.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+});
+
+document.addEventListener('click', (event) => {
+    if (!navLinks.contains(event.target) && !hamburger.contains(event.target) && !closeIcon.contains(event.target)) {
+        navLinks.classList.remove('active');
+    }
+});
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const anchors = document.querySelectorAll('a[href^="#"]');
     if (anchors.length > 0) {
